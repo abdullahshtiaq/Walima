@@ -1,7 +1,7 @@
 const express = require('express');
 const multer = require('multer');
 const app = express();
-const port = process.env.PORT || 3001;  // Changed to 3001
+const port = process.env.PORT || 3000;  // Changed to 3001
 
 // Configure multer for file upload handling
 const upload = multer();
