@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap');
+
+body {
+    font-family: 'Dancing Script', cursive;
+    background-image: url('nikkah-background.png'); /* Replace with your background image */
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    padding: 20px;
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+    color: #4CAF50;
+    font-size: 3.0em;
+    font-weight: bold;
+}
+
+.walima-details p {
+    font-family: ;
+    font-size: 1.5em;
+    margin: 30px 0;
+}
+
+label {
+    margin-top: 10px;
+    color: #333;
+    font-size: 1.5em;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.form-hidden {
+    display: none;
+}
+
+.thank-you-hidden {
+    display: none;
+}
+
+.error-hidden {
+    display: none;
+}
+
+.error-message {
+    display: block;
+    background-color: #ffdddd;
+    color: #d8000c;
+    padding: 10px;
+    border: 1px solid #d8000c;
+    border-radius: 5px;
+    margin-top: 10px;
+    position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+.form-step {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.form-step-active {
+    display: block;
+    opacity: 1;
+}
+
+.input-group, .question-group {
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.question-group{
+    margin-top: 50px;
+}
+
+input, textarea {
+    padding: 7px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.radio-group {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.radio-group label {
+    margin: 0 5px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+}
