@@ -1,12 +1,12 @@
 const express = require('express');
 const multer = require('multer');
 const app = express();
-const port = process.env.PORT || 3000;  // Use the PORT environment variable
+const port = process.env.PORT || 3001;  // Changed to 3001
 
 // Configure multer for file upload handling
 const upload = multer();
 
-app.use(express.static('public'));
+app.use(express.static('../public'));
 
 // Endpoint to handle form submission
 app.post('/submit', upload.none(), (req, res) => {

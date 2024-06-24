@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function submitFormData(formData) {
-        fetch('http://localhost:3000/submit', {
+        fetch('https://nikkah-ishtiaqabdullah11-gmailcoms-projects.vercel.app/', {
             method: 'POST',
             body: formData
         })
@@ -103,4 +103,5 @@ document.addEventListener('DOMContentLoaded', function () {
             showErrorMessage();
         });
     }
+    
 });
