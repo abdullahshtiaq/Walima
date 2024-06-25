@@ -26,7 +26,7 @@ body {
     transform: translate(-50%, -50%);
 }
 
-.hall {
+.walima-details, .hall {
     color: #4CAF50;
     font-size: 2.0em;
 }
