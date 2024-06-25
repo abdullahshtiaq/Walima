@@ -136,7 +136,6 @@ input, textarea {
     justify-content: center;
 }
 
-
 @media (min-width: 600px) {
     .container {
         width: 80%;
