@@ -77,7 +77,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function submitFormData(formData) {
-        fetch('https://nikkah-ishtiaqabdullah11-gmailcoms-projects.vercel.app/api/submit', {  // Ensure this URL points to your Vercel deployment
+        fetch('https://walima-ishtiaqabdullah11-gmailcoms-projects.vercel.app/api/submit', {  // Ensure this URL points to your Vercel deployment
             method: 'POST',
             body: formData
         })
