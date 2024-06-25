@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let currentStep = 0;
 
     // Calculate days left to RSVP
-    const walimaDate = new Date('2024-08-11');
+    const walimaDate = new Date('2024-08-10');
     const today = new Date();
     const timeDiff = walimaDate.getTime() - today.getTime();
     const daysLeft = Math.ceil(timeDiff / (1000 * 3600 * 24));
