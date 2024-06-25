@@ -2,7 +2,7 @@
 
 body {
     font-family: 'Dancing Script', cursive;
-    background-image: url('nikkah-background.png'); /* Replace with your background image */
+    background-image: url('nikkah-background.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -12,15 +12,15 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    overflow: hidden; /* Prevent scrolling */
+    overflow: hidden; 
 }
 
 .container {
     padding: 10px;
     width: 90%;
-    max-width: 400px; /* Adjust the max-width for mobile */
+    max-width: 400px;
     text-align: center;
-    position: fixed; /* Fix container in position */
+    position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -34,19 +34,19 @@ body {
 h1 {
     text-align: center;
     color: #4CAF50;
-    font-size: 2.0em; /* Adjust font size for mobile */
+    font-size: 2.0em; 
     font-weight: bold;
 }
 
 .walima-details p {
-    font-size: 1.2em; /* Adjust font size for mobile */
+    font-size: 1.2em; 
     margin: 20px 0;
 }
 
 label {
     margin-top: 10px;
     color: #333;
-    font-size: 1.2em; /* Adjust font size for mobile */
+    font-size: 1.2em; 
 }
 
 button {
@@ -57,7 +57,7 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 1.0em; /* Adjust font size for mobile */
+    font-size: 1.0em; 
     font-weight: bold;
 }
 
@@ -136,7 +136,6 @@ input, textarea {
     justify-content: center;
 }
 
-/* Styles for larger screens */
 @media (min-width: 600px) {
     .container {
         width: 80%;
