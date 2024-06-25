@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     document.getElementById('nikkahForm').addEventListener('submit', function (event) {
         event.preventDefault();
-        if (validateFormStep(currentStep) && validateFormStep(0) && validateFormStep(1)) { // Ensure all steps are validated
+        if (validateAllSteps()) {
             hideErrorMessage();
             nikkahForm.style.display = 'none';
             thankYouMessage.style.display = 'block';
@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
         inputs.forEach(input => {
             if (!input.checkValidity()) {
-                console.log('Invalid input:', input.name, input.value); // Log invalid input
+                console.log(`Invalid input in step ${step}:`, input.name, input.value); // Log invalid input
                 isValid = false;
             }
         });
@@ -58,12 +58,22 @@ document.addEventListener('DOMContentLoaded', function () {
             const radioYes = document.getElementById('attending-yes');
             const radioNo = document.getElementById('attending-no');
             if (!radioYes.checked && !radioNo.checked) {
-                console.log('No radio button selected'); // Log radio button issue
+                console.log('No radio button selected in step 1'); // Log radio button issue
                 isValid = false;
             }
         }
 
         return isValid;
+    }
+
+    function validateAllSteps() {
+        let allValid = true;
+        for (let i = 0; i < formSteps.length; i++) {
+            if (!validateFormStep(i)) {
+                allValid = false;
+            }
+        }
+        return allValid;
     }
 
     function showErrorMessage() {
