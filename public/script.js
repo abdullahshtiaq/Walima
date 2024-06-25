@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     document.getElementById('nikkahForm').addEventListener('submit', function (event) {
         event.preventDefault();
-        if (validateFormStep(currentStep)) {
+        if (validateFormStep(currentStep) && validateFormStep(0) && validateFormStep(1)) { // Ensure all steps are validated
             hideErrorMessage();
             nikkahForm.style.display = 'none';
             thankYouMessage.style.display = 'block';
