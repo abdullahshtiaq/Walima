@@ -6,16 +6,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const nikkahForm = document.getElementById('nikkahForm');
     const thankYouMessage = document.getElementById('thankYouMessage');
     const errorMessage = document.getElementById('errorMessage');
-    const walimaDateElement = document.getElementById('walimaDate');
-    const daysLeftElement = document.getElementById('daysLeft');
     let currentStep = 0;
 
-    // Calculate days left to RSVP
-    const walimaDate = new Date('2024-08-12');
-    const today = new Date();
-    const timeDiff = walimaDate.getTime() - today.getTime();
-    const daysLeft = Math.ceil(timeDiff / (1000 * 3600 * 24));
-    daysLeftElement.textContent = daysLeft;
 
     rsvpButton.addEventListener('click', () => {
         walimaDetails.style.display = 'none';
