@@ -3,7 +3,7 @@
 body {
     font-family: 'Dancing Script', cursive;
     background-image: url('nikkah-background.png'); /* Replace with your background image */
-    background-size: contain;
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -12,33 +12,36 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    overflow: hidden;
+    overflow: hidden; /* Prevent scrolling */
 }
 
 .container {
-    padding: 20px;
-    max-width: 500px;
-    width: 100%;
+    padding: 10px;
+    width: 90%;
+    max-width: 400px; /* Adjust the max-width for mobile */
     text-align: center;
-    position: fixed;
+    position: fixed; /* Fix container in position */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 h1 {
     text-align: center;
     color: #4CAF50;
-    font-size: 3.0em;
+    font-size: 2.0em; /* Adjust font size for mobile */
     font-weight: bold;
 }
 
 .walima-details p {
-    font-size: 1.5em;
-    margin: 30px 0;
+    font-size: 1.2em; /* Adjust font size for mobile */
+    margin: 20px 0;
 }
 
 label {
     margin-top: 10px;
     color: #333;
-    font-size: 1.5em;
+    font-size: 1.2em; /* Adjust font size for mobile */
 }
 
 button {
@@ -49,7 +52,7 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    font-size: 1.2em;
+    font-size: 1.0em; /* Adjust font size for mobile */
     font-weight: bold;
 }
 
@@ -100,7 +103,7 @@ button:hover {
     text-align: center;
 }
 
-.question-group{
+.question-group {
     margin-top: 50px;
 }
 
@@ -109,6 +112,7 @@ input, textarea {
     margin-top: 5px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    font-size: 1.0em; /* Adjust font size for mobile */
 }
 
 .radio-group {
@@ -127,33 +131,26 @@ input, textarea {
     justify-content: center;
 }
 
-/* Mobile Styles */
-@media (max-width: 600px) {
-    body {
-        background-size: cover;
-        height: auto;
-        padding: 20px;
-    }
-
+/* Styles for larger screens */
+@media (min-width: 600px) {
     .container {
-        width: 100%;
-        padding: 10px;
+        width: 80%;
+        max-width: 500px;
     }
 
     h1 {
-        font-size: 2.0em;
+        font-size: 3.0em;
     }
 
     .walima-details p, label {
-        font-size: 1.2em;
+        font-size: 1.5em;
     }
 
     input, textarea, button {
-        font-size: 1.0em;
-        padding: 5px;
+        font-size: 1.2em;
     }
 
     .error-message {
-        font-size: 0.9em;
+        font-size: 1.1em;
     }
 }
