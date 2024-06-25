@@ -26,6 +26,11 @@ body {
     transform: translate(-50%, -50%);
 }
 
+.hall {
+    color: #4CAF50;
+    font-size: 1.5em;
+}
+
 h1 {
     text-align: center;
     color: #4CAF50;
