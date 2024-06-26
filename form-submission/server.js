@@ -1,13 +1,10 @@
 const express = require('express');
-const multer = require('multer');
+const net = require('net');
 const winston = require('winston');
 require('winston-papertrail').Papertrail;
 
 const app = express();
 const port = process.env.PORT || 3000;
-
-// Configure multer for file upload handling
-const upload = multer();
 
 // Configure Winston for logging to Papertrail
 const logger = winston.createLogger({
@@ -17,34 +14,42 @@ const logger = winston.createLogger({
             port: process.env.PAPERTRAIL_PORT, // Use environment variable
             logFormat: function (level, message) {
                 return `${new Date().toISOString()} [${level}] ${message}`;
-            }
+            },
+            handleExceptions: true
         })
     ]
 });
 
-// Middleware to log requests
-app.use((req, res, next) => {
-    console.log(`HTTP ${req.method} ${req.url}`); // Console log
-    logger.info(`HTTP ${req.method} ${req.url}`);
-    next();
-});
+// Connectivity test endpoint
+app.get('/test-connectivity', (req, res) => {
+    const client = new net.Socket();
+    const host = process.env.PAPERTRAIL_HOST;
+    const port = process.env.PAPERTRAIL_PORT;
 
-// Endpoint to handle form submission
-app.post('/api/submit', upload.none(), (req, res) => {
-    const formData = req.body;
-    console.log('Form Data:', formData); // Console log
-    logger.info(`Form Data: ${JSON.stringify(formData)}`);
-    res.sendStatus(200);
-});
+    client.setTimeout(5000); // 5 seconds timeout
 
-// Error handling middleware
-app.use((err, req, res, next) => {
-    console.error(`Error: ${err.message}`); // Console log
-    logger.error(`Error: ${err.message}`);
-    res.status(500).send('Internal Server Error');
+    client.connect(port, host, () => {
+        console.log(`Successfully connected to ${host}:${port}`);
+        logger.info(`Successfully connected to ${host}:${port}`);
+        res.send(`Successfully connected to ${host}:${port}`);
+        client.destroy(); // Close the connection
+    });
+
+    client.on('error', (err) => {
+        console.error(`Connection error: ${err.message}`);
+        logger.error(`Connection error: ${err.message}`);
+        res.status(500).send(`Connection error: ${err.message}`);
+    });
+
+    client.on('timeout', () => {
+        console.error(`Connection timeout`);
+        logger.error(`Connection timeout`);
+        res.status(500).send(`Connection timeout`);
+        client.destroy(); // Close the connection
+    });
 });
 
 app.listen(port, () => {
-    console.log(`Server running at http://localhost:${port}`); // Console log
+    console.log(`Server running at http://localhost:${port}`);
     logger.info(`Server running at http://localhost:${port}`);
 });
