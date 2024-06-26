@@ -1,7 +1,7 @@
 const express = require('express');
 const multer = require('multer');
 const winston = require('winston');
-require('winston-loggly-bulk');
+require('winston-papertrail').Papertrail;
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -9,44 +9,32 @@ const port = process.env.PORT || 3000;
 // Configure multer for file upload handling
 const upload = multer();
 
-// Determine log level and destination
-const logLevel = process.env.LOG_LEVEL || 'info';
-const logDestination = process.env.LOG_DESTINATION || 'console';
-
-// Configure Winston
-const transports = [];
-if (logDestination === 'loggly') {
-    transports.push(new winston.transports.Loggly({
-        token: process.env.LOGGLY_TOKEN,
-        subdomain: process.env.LOGGLY_SUBDOMAIN,
-        tags: ["Winston-NodeJS"],
-        json: true,
-        level: logLevel
-    }));
-} else {
-    transports.push(new winston.transports.Console({
-        format: winston.format.simple(),
-        level: logLevel
-    }));
-}
-
+// Configure Winston for logging to Papertrail
 const logger = winston.createLogger({
-    transports: transports
+    transports: [
+        new winston.transports.Papertrail({
+            host: 'logs.papertrailapp.com', // Replace with your Papertrail log destination host
+            port: 33101, // Replace with your Papertrail log destination port
+            logFormat: function (level, message) {
+                return `[${level}] ${message}`;
+            }
+        })
+    ]
 });
 
 // Middleware to log requests
 app.use((req, res, next) => {
-    logger.log('info', `HTTP ${req.method} ${req.url}`);
+    logger.info(`HTTP ${req.method} ${req.url}`);
     next();
 });
 
 // Endpoint to handle form submission
 app.post('/api/submit', upload.none(), (req, res) => {
     const formData = req.body;
-    logger.log('info', 'Form Data:', formData);
+    logger.info('Form Data:', formData);
     res.sendStatus(200);
 });
 
 app.listen(port, () => {
-    logger.log('info', `Server running at http://localhost:${port}`);
+    logger.info(`Server running at http://localhost:${port}`);
 });
