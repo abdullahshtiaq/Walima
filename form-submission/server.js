@@ -44,8 +44,8 @@ app.post('/api/submit', upload.none(), async (req, res) => {
     console.log('Form Data saved:', formData);
     res.sendStatus(200);
   } catch (error) {
-    console.error('Error saving form data:', error);
-    res.sendStatus(500);
+    console.error('Error saving form data:', error); // Log detailed error
+    res.status(500).send({ error: 'Error saving form data', details: error.message });
   }
 });
 
