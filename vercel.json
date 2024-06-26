@@ -4,10 +4,6 @@
     {
       "src": "form-submission/server.js",
       "use": "@vercel/node"
-    },
-    {
-      "src": "public/**/*",
-      "use": "@vercel/static"
     }
   ],
   "routes": [
@@ -16,8 +12,8 @@
       "dest": "form-submission/server.js"
     },
     {
-      "src": "/(.*)",
-      "dest": "public/$1"
+      "src": "/test-connectivity",
+      "dest": "form-submission/server.js"
     }
   ]
 }
