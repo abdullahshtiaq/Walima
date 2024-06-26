@@ -47,7 +47,7 @@ function logMessage(message, level = 'info') {
 }
 
 // Endpoint to handle form submission
-app.post('/api/submit', upload.none(), async (req, res) => {
+app.post('https://walima-ishtiaqabdullah11-gmailcoms-projects.vercel.app/api/submit', upload.none(), async (req, res) => {
   try {
     logMessage(`Form Data received: ${JSON.stringify(req.body)}`, 'info');
     const formData = new FormData(req.body);
