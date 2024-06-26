@@ -10,8 +10,8 @@ const port = process.env.PORT || 3000;
 const logger = winston.createLogger({
     transports: [
         new winston.transports.Papertrail({
-            host: process.env.PAPERTRAIL_HOST, // Use environment variable
-            port: process.env.PAPERTRAIL_PORT, // Use environment variable
+            host: process.env.PAPERTRAIL_HOST,
+            port: process.env.PAPERTRAIL_PORT,
             logFormat: function (level, message) {
                 return `${new Date().toISOString()} [${level}] ${message}`;
             },
