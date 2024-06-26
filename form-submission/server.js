@@ -36,7 +36,7 @@ const upload = multer();
 app.use(express.static('public'));
 
 // Endpoint to handle form submission
-app.post('/api/submit', upload.none(), async (req, res) => {
+app.post('https://walima-ishtiaqabdullah11-gmailcoms-projects.vercel.app/api/submit', upload.none(), async (req, res) => {
   try {
     console.log('Form Data received:', req.body); // Log received data
     const formData = new FormData(req.body);
