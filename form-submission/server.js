@@ -4,7 +4,7 @@ const winston = require('winston');
 require('winston-papertrail').Papertrail;
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3001;
 
 // Configure multer for file upload handling
 const upload = multer();
