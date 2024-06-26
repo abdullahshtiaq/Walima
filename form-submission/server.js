@@ -10,8 +10,14 @@ require('dotenv').config();
 // Connect to MongoDB
 const mongoUri = process.env.MONGO_URI;
 mongoose.connect(mongoUri, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log('MongoDB connected'))
-  .catch(err => console.log('MongoDB connection error:', err));
+  .then(() => {
+    console.log('MongoDB connected');
+    logMessage('MongoDB connected', 'info');
+  })
+  .catch(err => {
+    console.error('MongoDB connection error:', err);
+    logMessage(`MongoDB connection error: ${err.message}`, 'error');
+  });
 
 // Define a schema and model for form data
 const formDataSchema = new mongoose.Schema({
@@ -47,7 +53,7 @@ function logMessage(message, level = 'info') {
 }
 
 // Endpoint to handle form submission
-app.post('https://walima-ishtiaqabdullah11-gmailcoms-projects.vercel.app/api/submit', upload.none(), async (req, res) => {
+app.post('/api/submit', upload.none(), async (req, res) => {
   try {
     logMessage(`Form Data received: ${JSON.stringify(req.body)}`, 'info');
     const formData = new FormData(req.body);
@@ -62,4 +68,5 @@ app.post('https://walima-ishtiaqabdullah11-gmailcoms-projects.vercel.app/api/sub
 
 app.listen(port, () => {
   logMessage(`Server running at http://localhost:${port}`, 'info');
+  console.log(`Server running at http://localhost:${port}`);
 });
