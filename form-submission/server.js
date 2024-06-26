@@ -9,8 +9,6 @@ require('dotenv').config(); // Load environment variables
 // Connect to MongoDB
 const mongoUri = process.env.MONGO_URI;
 mongoose.connect(mongoUri, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
   serverSelectionTimeoutMS: 5000, // 5 seconds
   socketTimeoutMS: 45000, // 45 seconds
 })
@@ -36,7 +34,7 @@ const upload = multer();
 app.use(express.static('public'));
 
 // Endpoint to handle form submission
-app.post('https://walima-ishtiaqabdullah11-gmailcoms-projects.vercel.app/api/submit', upload.none(), async (req, res) => {
+app.post('/api/submit', upload.none(), async (req, res) => {
   try {
     console.log('Form Data received:', req.body); // Log received data
     const formData = new FormData(req.body);
