@@ -7,7 +7,7 @@ const port = process.env.PORT || 3000;
 require('dotenv').config(); // Load environment variables
 
 // Connect to MongoDB
-const mongoUri = process.env.MONGO_URI;
+const mongoUri = process.env.MONGODB_URI;
 mongoose.connect(mongoUri, {
   serverSelectionTimeoutMS: 5000, // 5 seconds
   socketTimeoutMS: 45000, // 45 seconds
