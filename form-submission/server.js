@@ -35,18 +35,23 @@ app.use(express.static('public'));
 
 // Endpoint to handle form submission
 app.post('/api/submit', upload.none(), async (req, res) => {
-  try {
-    console.log('Form Data received:', req.body); // Log received data
-    const formData = new FormData(req.body);
-    await formData.save();
-    console.log('Form Data saved:', formData);
-    res.sendStatus(200);
-  } catch (error) {
-    console.error('Error saving form data:', error); // Log detailed error
-    res.status(500).send({ error: 'Error saving form data', details: error.message });
-  }
-});
-
-app.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}`);
-});
+    try {
+      console.log('Form Data received:', req.body); // Log received data
+      const formData = new FormData({
+        firstName: req.body['first-name'],
+        lastName: req.body['last-name'],
+        attending: req.body.attending,
+        guests: parseInt(req.body.guests, 10),
+      });
+      await formData.save();
+      console.log('Form Data saved:', formData);
+      res.sendStatus(200);
+    } catch (error) {
+      console.error('Error saving form data:', error); // Log detailed error
+      res.status(500).send({ error: 'Error saving form data', details: error.message });
+    }
+  });
+  
+  app.listen(port, () => {
+    console.log(`Server running at http://localhost:${port}`);
+  });
