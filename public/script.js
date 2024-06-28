@@ -6,7 +6,9 @@ document.addEventListener('DOMContentLoaded', function () {
   const nikkahForm = document.getElementById('nikkahForm');
   const thankYouMessage = document.getElementById('thankYouMessage');
   const errorMessage = document.getElementById('errorMessage');
+  const backgroundMusic = document.getElementById('background-music');
   let currentStep = 0;
+  backgroundMusic.play();
 
   rsvpButton.addEventListener('click', () => {
       walimaDetails.style.display = 'none';
