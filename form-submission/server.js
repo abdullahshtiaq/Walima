@@ -20,10 +20,10 @@ mongoose.connect(mongoUri, {
 
 // Define a schema and model for form data
 const formDataSchema = new mongoose.Schema({
-  firstName: String,
-  lastName: String,
-  attending: String,
-  guests: Number
+    firstName: { type: String, required: true },
+    lastName: { type: String, required: true },
+    guests: { type: Number, required: true },
+    attending: { type: Boolean, required: true },
 }, { timestamps: true });
 
 const FormData = mongoose.model('FormData', formDataSchema);
