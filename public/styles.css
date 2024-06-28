@@ -3,7 +3,7 @@
 body {
     font-family: 'Dancing Script', cursive;
     background-image: url('walima-background.png'); 
-    background-size: cover;
+    background-size: cover; /* Ensure the image is fully visible */
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -24,6 +24,8 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+    border-radius: 10px; /* Rounded corners */
 }
 
 .hall {
@@ -59,12 +61,10 @@ button {
     cursor: pointer;
     font-size: 1.0em; 
     font-weight: bold;
-    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 button:hover {
     background-color: #45a049;
-    transform: scale(1.05);
 }
 
 .form-hidden {
@@ -94,32 +94,15 @@ button:hover {
     z-index: 10;
 }
 
-.form-container {
-    position: relative;
-    height: 50%;
-}
-
 .form-step {
-    position: absolute;
-    width: 100%;
-    top: 0;
-    left: 0;
     display: none;
     opacity: 0;
-    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-    transform: translateX(100%);
+    transition: opacity 0.5s ease-in-out;
 }
 
 .form-step-active {
     display: block;
     opacity: 1;
-    transform: translateX(0);
-}
-
-.form-step-previous {
-    display: block;
-    opacity: 0;
-    transform: translateX(-100%);
 }
 
 .input-group, .question-group {

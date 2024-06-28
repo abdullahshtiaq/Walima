@@ -96,9 +96,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function goToNextStep() {
       formSteps[currentStep].classList.remove('form-step-active');
-      formSteps[currentStep].classList.add('form-step-previous');
       currentStep = (currentStep + 1) % formSteps.length;
-      formSteps[currentStep].classList.remove('form-step-previous');
       formSteps[currentStep].classList.add('form-step-active');
   }
 
