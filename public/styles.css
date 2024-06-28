@@ -86,7 +86,7 @@ button:hover {
     border-radius: 5px;
     margin-top: 10px;
     position: absolute;
-    top: 107%;
+    top: 112%;
     left: 50%;
     transform: translateX(-50%);
     z-index: 10;
