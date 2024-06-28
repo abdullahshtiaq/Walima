@@ -8,11 +8,12 @@ document.addEventListener('DOMContentLoaded', function () {
   const errorMessage = document.getElementById('errorMessage');
   const backgroundMusic = document.getElementById('background-music');
   let currentStep = 0;
-  backgroundMusic.play();
+
 
   rsvpButton.addEventListener('click', () => {
       walimaDetails.style.display = 'none';
       nikkahForm.style.display = 'block';
+      backgroundMusic.play().catch(error => console.log('Background music play error:', error));
   });
 
   nextBtns.forEach((button, index) => {
