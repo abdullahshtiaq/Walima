@@ -101,6 +101,14 @@ document.addEventListener('DOMContentLoaded', function () {
       formSteps[currentStep].classList.add('form-step-active');
   }
 
+  function showConfetti() {
+    confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 }
+    });
+  }
+
   function submitFormData(formData) {
       fetch('/api/submit', {
           method: 'POST',
@@ -110,6 +118,7 @@ document.addEventListener('DOMContentLoaded', function () {
           if (response.ok) {
               nikkahForm.style.display = 'none';
               thankYouMessage.style.display = 'block';
+              showConfetti();
           } else {
               showErrorMessage();
           }

@@ -175,29 +175,3 @@ input, textarea {
         font-size: 1.1em;
     }
 }
-
-@keyframes float {
-    0% {
-        transform: translateY(0);
-    }
-    50% {
-        transform: translateY(-10px);
-    }
-    100% {
-        transform: translateY(0);
-    }
-}
-
-.floating-element {
-    position: absolute;
-    animation: float 5s ease-in-out infinite;
-    opacity: 0.8;
-}
-
-.floating-element:nth-child(odd) {
-    animation-delay: 2s;
-}
-
-.floating-element:nth-child(even) {
-    animation-delay: 4s;
-}
