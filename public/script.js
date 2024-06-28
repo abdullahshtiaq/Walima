@@ -17,6 +17,17 @@ document.addEventListener('DOMContentLoaded', function () {
       button.addEventListener('click', () => {
           if (validateFormStep(currentStep)) {
               hideErrorMessage();
+              if (currentStep === 1) { // Check if we are on the second step
+                  const attendingNo = document.getElementById('attending-no');
+                  if (attendingNo.checked) {
+                      nikkahForm.style.display = 'none';
+                      thankYouMessage.style.display = 'block';
+                      const formData = new FormData(nikkahForm);
+                      console.log('Submitting form data:', Object.fromEntries(formData.entries())); // Log form data
+                      submitFormData(formData);
+                      return; // Exit the function to skip to the thank you message
+                  }
+              }
               goToNextStep();
           } else {
               showErrorMessage();
