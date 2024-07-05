@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
       button.addEventListener('click', () => {
           if (validateFormStep(currentStep)) {
               hideErrorMessage();
-              if (currentStep === 1) { // Check if we are on the second step
+              if (currentStep === 1) { 
                   const attendingNo = document.getElementById('attending-no');
                   if (attendingNo.checked) {
                       nikkahForm.style.display = 'none';
@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function () {
                       const formData = new FormData(nikkahForm);
                       console.log('Submitting form data:', Object.fromEntries(formData.entries())); // Log form data
                       submitFormData(formData);
-                      return; // Exit the function to skip to the thank you message
+                      return; 
                   }
               }
               goToNextStep();
@@ -43,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
           nikkahForm.style.display = 'none';
           thankYouMessage.style.display = 'block';
           const formData = new FormData(nikkahForm);
-          console.log('Submitting form data:', Object.fromEntries(formData.entries())); // Log form data
+          console.log('Submitting form data:', Object.fromEntries(formData.entries())); 
           submitFormData(formData);
       } else {
           showErrorMessage();
@@ -57,16 +57,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
       inputs.forEach(input => {
           if (!input.checkValidity()) {
-              console.log(`Invalid input in step ${step}:`, input.name, input.value); // Log invalid input
+              console.log(`Invalid input in step ${step}:`, input.name, input.value);
               isValid = false;
           }
       });
 
-      if (step === 1) { // Check radio buttons in the second step
+      if (step === 1) { 
           const radioYes = document.getElementById('attending-yes');
           const radioNo = document.getElementById('attending-no');
           if (!radioYes.checked && !radioNo.checked) {
-              console.log('No radio button selected in step 1'); // Log radio button issue
+              console.log('No radio button selected in step 1'); 
               isValid = false;
           }
       }
