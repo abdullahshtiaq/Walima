@@ -3,7 +3,7 @@
 body {
     font-family: 'Dancing Script', cursive;
     background-image: url('walima-background.png'); 
-    background-size: cover; /* Ensure the image is fully visible */
+    background-size: cover; 
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: fixed;
@@ -117,7 +117,7 @@ input, textarea {
     margin-top: 5px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    font-size: 1.0em; /* Adjust font size for mobile */
+    font-size: 1.0em; 
 }
 
 .radio-group {
